@@ -2,6 +2,7 @@
 Inspired by  https://github.com/mtreinik/netgear-m1
 
 
+```
 usage: python main.py [-h] [-i IP] [-p PASSWORD] [-o OUTPUT] command
 
 Python script to control netgear m1 router
@@ -24,3 +25,4 @@ options:
   -o OUTPUT, --output OUTPUT
                         Status output, can be all,json or few default to few
 
+```
