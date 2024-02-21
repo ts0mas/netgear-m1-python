@@ -71,9 +71,9 @@ reboot_script  Turn cellular data connection off and on again.
         elif args.command == "reconnect":
             router.disconnect()
             router.conenct()
-        elif args.command=="reboot_script"
-            connection=router.get_info("connection")
-            while connection=='Conencted' :
+        elif args.command == "reboot_script":
+            connection = router.get_info("connection")
+            while connection == "Conencted":
                 time.sleep(5)
-                connection=router.get_info("connection")
+                connection = router.get_info("connection")
             router.reboot()
