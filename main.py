@@ -43,7 +43,7 @@ reboot     Reboot router.
 connect    Turn cellular data connection on.
 disconnect Turn cellular data connection off.
 reconnect  Turn cellular data connection off and on again.
-reboot_script  Turn cellular data connection off and on again.
+reboot_noconnection  reboot if router has no connection.
         """,
     )
     p.add_argument(
@@ -71,9 +71,10 @@ reboot_script  Turn cellular data connection off and on again.
         elif args.command == "reconnect":
             router.disconnect()
             router.conenct()
-        elif args.command == "reboot_script":
-            connection = router.get_info("connection")
-            while connection == "Connected":
-                time.sleep(5)
+        elif args.command == "reboot_noconnection":
+            while True:
                 connection = router.get_info("connection")
-            router.reboot()
+                while connection == "Connected":
+                    time.sleep(5)
+                    connection = router.get_info("connection")
+                router.reboot()
